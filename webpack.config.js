@@ -63,7 +63,7 @@ module.exports = (env, argv) => {
                 favicon: 'src/assets/favicon.ico',
             }),
             new MiniCssExtractPlugin({
-                filename: 'style-[hash].css',
+                filename: filename('css'),
             }),
             new CleanWebpackPlugin(),
             new CopyWebpackPlugin({
