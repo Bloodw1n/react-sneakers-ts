@@ -17,7 +17,7 @@ function App() {
         >
             <Drawer onClose={() => setCartOpened(false)} isOpen={cartOpened} />
             <Header onClickCart={() => setCartOpened(true)} />
-            <Routes>{items && <Route path="/" element={<Home items={items} isLoading={isLoading} />} />}</Routes>
+            <Routes>{<Route path="/" element={<Home items={items || []} isLoading={isLoading} />} />}</Routes>
         </div>
     );
 }
