@@ -4,10 +4,10 @@ import { ICardItem } from '../../models/ICardItem';
 import HomeViewCard from '../../components/Card/homeViewCard';
 
 type PropsType = {
-    items: ICardItem[];
     isLoading: boolean;
-    cartItems: ICardItem[];
-    favorites: ICardItem[];
+    items?: ICardItem[];
+    cartItems?: ICardItem[];
+    favorites?: ICardItem[];
 };
 
 const Home: FC<PropsType> = ({ items, cartItems, favorites, isLoading = false }) => {
@@ -37,8 +37,8 @@ const Home: FC<PropsType> = ({ items, cartItems, favorites, isLoading = false })
                     <HomeViewCard
                         key={index}
                         item={item}
-                        cartItems={cartItems || []}
-                        favorites={favorites || []}
+                        cartItems={cartItems}
+                        favorites={favorites}
                         isLoading={isLoading}
                     />
                 ))}

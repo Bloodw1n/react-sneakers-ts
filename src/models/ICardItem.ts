@@ -5,3 +5,9 @@ export interface ICardItem {
     imgUrl: string;
     parentId?: string;
 }
+
+export interface IOrderItem {
+    id: string;
+    items: ICardItem[];
+    orderPrice: number;
+}

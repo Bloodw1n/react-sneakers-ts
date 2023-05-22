@@ -6,11 +6,13 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Favorites from './pages/Favorite';
 import './scss/index.scss';
+import Orders from './pages/Orders';
 
 function App() {
     const { data: items, isLoading } = sneakersAPI.useFetchAllCardItemsQuery(7);
     const { data: favorites, isLoading: isFavoritesLoading } = sneakersAPI.useFetchFavoriteItemsQuery(7);
     const { data: cartItems } = sneakersAPI.useFetchCartItemsQuery(7);
+    const { data: orders, isLoading: isOrdersLoading } = sneakersAPI.useFetchOrdersQuery(14);
     const [cartOpened, setCartOpened] = useState<boolean>(false);
 
     return (
@@ -23,14 +25,7 @@ function App() {
             <Routes>
                 <Route
                     path="/"
-                    element={
-                        <Home
-                            items={items || []}
-                            cartItems={cartItems || []}
-                            favorites={favorites || []}
-                            isLoading={isLoading}
-                        />
-                    }
+                    element={<Home items={items} cartItems={cartItems} favorites={favorites} isLoading={isLoading} />}
                 />
                 <Route
                     path="/favorites"
@@ -38,6 +33,7 @@ function App() {
                         <Favorites favorites={favorites} cartItems={cartItems || []} isLoading={isFavoritesLoading} />
                     }
                 />
+                <Route path="/orders" element={<Orders orders={orders} isLoading={isOrdersLoading} />} />
             </Routes>
         </div>
     );
