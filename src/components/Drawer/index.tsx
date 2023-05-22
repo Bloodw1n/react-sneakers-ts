@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
-import { useState } from 'react';
-import DrawerViewCard from '../Card/drawerViewCard';
-import { useCart } from '../../hooks/useCart';
+import React, { FC, useState } from 'react';
+import DrawerViewCard from '../Cards/drawerViewCard';
 import Info from '../Info';
+import { DrawerFooter } from '../../ui';
 import { ICardItem } from '../../models/ICardItem';
 import { sneakersAPI } from '../../services';
+import { useCart } from '../../hooks/useCart';
 
 type PropsType = {
     onClose: () => void;
@@ -26,7 +26,7 @@ const Drawer: FC<PropsType> = ({ onClose, isOpen }) => {
         deleteCartItem(item);
     };
 
-    const onClickOrder = async () => {
+    const createOrderHandler = async () => {
         if (!cartItems) return;
 
         try {
@@ -64,23 +64,12 @@ const Drawer: FC<PropsType> = ({ onClose, isOpen }) => {
                             ))}
                         </div>
 
-                        <div className="cartTotalBlock">
-                            <ul>
-                                <li>
-                                    <span>Итого</span>
-                                    <div></div>
-                                    <b>{totalPrice} руб</b>
-                                </li>
-                                <li>
-                                    <span>Налог 5%:</span>
-                                    <div></div>
-                                    <b>{tax}</b>
-                                </li>
-                            </ul>
-                            <button disabled={isLoading} onClick={onClickOrder} className="greenBtn">
-                                Оформить заказ <img src="../../assets/images/arrow.svg" alt="arrow" />
-                            </button>
-                        </div>
+                        <DrawerFooter
+                            isLoading={isLoading}
+                            createOrder={createOrderHandler}
+                            totalPrice={totalPrice}
+                            tax={tax}
+                        />
                     </div>
                 ) : (
                     <Info

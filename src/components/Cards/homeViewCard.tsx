@@ -20,13 +20,14 @@ const HomeViewCard: FC<PropsType> = ({ item, cartItems, favorites, isLoading }) 
     const [deleteFromFavorites, {}] = sneakersAPI.useDeleteFromFavoritesMutation();
     const [addToFavoriteItem, {}] = sneakersAPI.useAddToFavoriteItemMutation();
 
-    const onClickPlus = () => {
+    const plusHandler = () => {
         const findItem = cartItems?.find((item) => item.parentId === selectedItem.id) || null;
         findItem ? deleteCartItem(findItem) : addToCartItem(selectedItem);
     };
 
-    const onClickFavorite = () => {
+    const favoriteHandler = () => {
         const isFavoritePage = window.location.pathname === '/favorites';
+
         if (!isFavoritePage) {
             const findItem = favorites?.find((item) => item.parentId === selectedItem.id) || null;
             findItem ? deleteFromFavorites(findItem) : addToFavoriteItem(selectedItem);
@@ -41,7 +42,7 @@ const HomeViewCard: FC<PropsType> = ({ item, cartItems, favorites, isLoading }) 
                 <CustomContentLoader />
             ) : (
                 <>
-                    <div style={{ position: 'absolute', cursor: 'pointer' }} onClick={onClickFavorite}>
+                    <div style={{ position: 'absolute', cursor: 'pointer' }} onClick={favoriteHandler}>
                         <img
                             src={
                                 isItemFavorite(item.parentId ? item.parentId : item.id)
@@ -62,7 +63,7 @@ const HomeViewCard: FC<PropsType> = ({ item, cartItems, favorites, isLoading }) 
                         </div>
                         <img
                             style={{ cursor: 'pointer' }}
-                            onClick={onClickPlus}
+                            onClick={plusHandler}
                             src={
                                 isItemAdded(item.parentId ? item.parentId : item.id)
                                     ? '../../assets/images/btn-checked.svg'
