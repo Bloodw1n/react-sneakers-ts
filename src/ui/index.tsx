@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const CardWrapper = styled.div`
     border: 1px solid #f3f3f3;
@@ -15,3 +16,21 @@ export const CardWrapper = styled.div`
         transform: translateY(-5px);
     }
 `;
+
+type EmptyPageProps = {
+    title: string;
+    description: string;
+    img: string;
+};
+export const EmptyPage: FC<EmptyPageProps> = ({ title, description, img }) => {
+    return (
+        <div className="cartEmpty flex flex-col items-center justify-center ">
+            <img src={`../assets/images/${img}`} alt="sadness" />
+            <h2>{title}</h2>
+            <p className="opacity-50">{description}</p>
+            <Link to="/" className="greenBtn flex items-center justify-center">
+                <img src="../assets/images/arrow.svg" alt="arrow" /> Вернуться назад
+            </Link>
+        </div>
+    );
+};

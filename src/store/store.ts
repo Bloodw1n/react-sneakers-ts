@@ -1,13 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { cardItemsAPI } from '../services/CardItems';
+import { sneakersAPI } from '../services';
 
 const rootReducer = combineReducers({
-    [cardItemsAPI.reducerPath]: cardItemsAPI.reducer,
+    [sneakersAPI.reducerPath]: sneakersAPI.reducer,
 });
 
 export const setupStore = () => {
     return configureStore({
         reducer: rootReducer,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(cardItemsAPI.middleware),
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sneakersAPI.middleware),
     });
 };

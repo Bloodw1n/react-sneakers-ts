@@ -1,36 +1,39 @@
 import ContentLoader from 'react-content-loader';
 import { CardWrapper } from '../../ui';
 
-import React, { useState, FC } from 'react';
+import React, { FC } from 'react';
 import { ICardItem } from '../../models/ICardItem';
-import { cardItemsAPI } from '../../services/CardItems';
+import { sneakersAPI } from '../../services';
 import { useCart } from '../../hooks/useCart';
 
 type PropsType = {
     item: ICardItem;
-    favorite?: boolean;
-    isLoading?: boolean;
-    onPlus?: (obj: Object) => void;
-    onFavorite?: (obj: Object) => void;
+    isLoading: boolean;
+    cartItems: ICardItem[];
+    favorites: ICardItem[];
 };
 
-const HomeViewCard: FC<PropsType> = ({ item, onFavorite, favorite, isLoading }) => {
-    const { data: cartItems } = cardItemsAPI.useFetchCartItemsQuery(7);
-    const [addToCartItem, {}] = cardItemsAPI.useAddToCartItemMutation();
-    const [deleteCartItem, {}] = cardItemsAPI.useDeleteCartItemMutation();
-
-    const [isFavorite, setIsFavorite] = useState(favorite);
+const HomeViewCard: FC<PropsType> = ({ item, cartItems, favorites, isLoading }) => {
+    const { isItemAdded, isItemFavorite } = useCart();
     const selectedItem: ICardItem = { parentId: item?.id, ...item };
-    const { isItemAdded } = useCart();
+    const [addToCartItem, {}] = sneakersAPI.useAddToCartItemMutation();
+    const [deleteCartItem, {}] = sneakersAPI.useDeleteCartItemMutation();
+    const [deleteFromFavorites, {}] = sneakersAPI.useDeleteFromFavoritesMutation();
+    const [addToFavoriteItem, {}] = sneakersAPI.useAddToFavoriteItemMutation();
+
     const onClickPlus = () => {
-        const findItem = cartItems?.find((item) => Number(item.parentId) === Number(selectedItem.id)) || null;
+        const findItem = cartItems?.find((item) => item.parentId === selectedItem.id) || null;
         findItem ? deleteCartItem(findItem) : addToCartItem(selectedItem);
     };
+
     const onClickFavorite = () => {
-        if (onFavorite) {
-            onFavorite(selectedItem);
+        const isFavoritePage = window.location.pathname === '/favorites';
+        if (!isFavoritePage) {
+            const findItem = favorites?.find((item) => item.parentId === selectedItem.id) || null;
+            findItem ? deleteFromFavorites(findItem) : addToFavoriteItem(selectedItem);
+        } else {
+            deleteFromFavorites(selectedItem);
         }
-        setIsFavorite(!isFavorite);
     };
 
     return (
@@ -55,9 +58,9 @@ const HomeViewCard: FC<PropsType> = ({ item, onFavorite, favorite, isLoading }) 
                     <div style={{ position: 'absolute', cursor: 'pointer' }} onClick={onClickFavorite}>
                         <img
                             src={
-                                isFavorite
-                                    ? '../../assets/images/Add_to_favourites_active.svg'
-                                    : '../../assets/images/Add_to_favourites.svg'
+                                isItemFavorite(item.parentId ? item.parentId : item.id)
+                                    ? '../../assets/images/Add_to_favorites_active.svg'
+                                    : '../../assets/images/Add_to_favorites.svg'
                             }
                             alt="Add_to_favourites"
                         />
@@ -75,7 +78,7 @@ const HomeViewCard: FC<PropsType> = ({ item, onFavorite, favorite, isLoading }) 
                             style={{ cursor: 'pointer' }}
                             onClick={onClickPlus}
                             src={
-                                isItemAdded(item.id)
+                                isItemAdded(item.parentId ? item.parentId : item.id)
                                     ? '../../assets/images/btn-checked.svg'
                                     : '../../assets/images/btn-plus.svg'
                             }
