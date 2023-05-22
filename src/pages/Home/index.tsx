@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
 
 import { ICardItem } from '../../models/ICardItem';
-import HomeViewCard from '../../components/Card/homeViewCard';
+import HomeViewCard from '../../components/Cards/homeViewCard';
+import { PageWrapper } from '../../ui';
 
 type PropsType = {
     isLoading: boolean;
@@ -13,11 +14,11 @@ type PropsType = {
 const Home: FC<PropsType> = ({ items, cartItems, favorites, isLoading = false }) => {
     const [searchValue, setSearchValue] = useState<string>('');
     const filteredItems = items?.filter((item) => item.title.toLowerCase().includes(searchValue));
-    const onChangeSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const searchInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
     };
     return (
-        <div className="p-[40px]">
+        <PageWrapper>
             <div className="flex items-center justify-between mb-[40px]">
                 <h1 className="m-0 font-bold text-3xl">
                     {searchValue ? `Поиск по запросу "${searchValue}"` : 'Все кроссовки'}
@@ -26,7 +27,7 @@ const Home: FC<PropsType> = ({ items, cartItems, favorites, isLoading = false })
                     <img src="../../assets/images/search.svg" alt="Search" />
                     <input
                         className="border-0 p-3 text-base w-48 focus-visible:outline-0"
-                        onChange={onChangeSearchInput}
+                        onChange={searchInputHandler}
                         value={searchValue}
                         placeholder="Поиск..."
                     />
@@ -43,7 +44,7 @@ const Home: FC<PropsType> = ({ items, cartItems, favorites, isLoading = false })
                     />
                 ))}
             </div>
-        </div>
+        </PageWrapper>
     );
 };
 

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { ICardItem } from '../../models/ICardItem';
-import HomeViewCard from '../../components/Card/homeViewCard';
-import { EmptyPage } from '../../ui';
+import HomeViewCard from '../../components/Cards/homeViewCard';
+import { EmptyPage, PageTitle, PageWrapper } from '../../ui';
 
 type PropsType = {
     isLoading: boolean;
@@ -10,12 +10,10 @@ type PropsType = {
 };
 const Favorites: FC<PropsType> = ({ favorites, cartItems, isLoading }) => {
     return (
-        <div className="p-[40px]">
+        <PageWrapper>
             {favorites?.length ? (
                 <>
-                    <div className="flex items-center justify-between mb-[40px]">
-                        <h1 className="m-0 font-bold text-3xl">Мои закладки</h1>
-                    </div>
+                    <PageTitle>Мои Закладки</PageTitle>
 
                     <div className="flex flex-wrap">
                         {favorites.map((item, index) => (
@@ -36,7 +34,7 @@ const Favorites: FC<PropsType> = ({ favorites, cartItems, isLoading }) => {
                     img={'sadness.png'}
                 />
             )}
-        </div>
+        </PageWrapper>
     );
 };
 
