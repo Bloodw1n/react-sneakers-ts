@@ -4,13 +4,13 @@ import HomeViewCard from '../../components/Card/homeViewCard';
 import { EmptyPage } from '../../ui';
 
 type PropsType = {
-    favorites: ICardItem[] | undefined;
     isLoading: boolean;
     cartItems: ICardItem[];
+    favorites?: ICardItem[];
 };
 const Favorites: FC<PropsType> = ({ favorites, cartItems, isLoading }) => {
     return (
-        <div className="p-[40px] ">
+        <div className="p-[40px]">
             {favorites?.length ? (
                 <>
                     <div className="flex items-center justify-between mb-[40px]">

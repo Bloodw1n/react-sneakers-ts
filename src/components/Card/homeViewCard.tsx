@@ -1,16 +1,15 @@
-import ContentLoader from 'react-content-loader';
-import { CardWrapper } from '../../ui';
-
 import React, { FC } from 'react';
 import { ICardItem } from '../../models/ICardItem';
 import { sneakersAPI } from '../../services';
 import { useCart } from '../../hooks/useCart';
+import { CardWrapper, CustomContentLoader } from '../../ui';
 
 type PropsType = {
     item: ICardItem;
     isLoading: boolean;
-    cartItems: ICardItem[];
-    favorites: ICardItem[];
+    cartItems?: ICardItem[];
+    favorites?: ICardItem[];
+    isOrdersView?: boolean;
 };
 
 const HomeViewCard: FC<PropsType> = ({ item, cartItems, favorites, isLoading }) => {
@@ -39,20 +38,7 @@ const HomeViewCard: FC<PropsType> = ({ item, cartItems, favorites, isLoading }) 
     return (
         <CardWrapper>
             {isLoading ? (
-                <ContentLoader
-                    speed={2}
-                    width={165}
-                    height={256}
-                    viewBox="0 0 155 265"
-                    backgroundColor="#f3f3f3"
-                    foregroundColor="#ecebeb"
-                >
-                    <rect x="0" y="0" rx="10" ry="10" width="155" height="155" />
-                    <rect x="0" y="0" rx="167" ry="5" width="155" height="15" />
-                    <rect x="0" y="187" rx="5" ry="5" width="100" height="15" />
-                    <rect x="0" y="234" rx="5" ry="5" width="80" height="25" />
-                    <rect x="124" y="230" rx="10" ry="10" width="32" height="32" />
-                </ContentLoader>
+                <CustomContentLoader />
             ) : (
                 <>
                     <div style={{ position: 'absolute', cursor: 'pointer' }} onClick={onClickFavorite}>

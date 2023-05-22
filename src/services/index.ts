@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { ICardItem } from '../models/ICardItem';
+import { ICardItem, IOrderItem } from '../models/ICardItem';
 
 export const sneakersAPI = createApi({
     reducerPath: 'cardItemsAPI',
@@ -18,7 +18,7 @@ export const sneakersAPI = createApi({
             query: (limit = 5) => `/favorites?_limit=${limit}`,
             providesTags: ['Favorites'],
         }),
-        fetchOrders: build.query<ICardItem[], number>({
+        fetchOrders: build.query<IOrderItem[], number>({
             query: (limit = 100) => `/orders?_limit=${limit}`,
             providesTags: ['Orders'],
         }),
@@ -58,6 +58,7 @@ export const sneakersAPI = createApi({
                 method: 'POST',
                 body: items,
             }),
+            invalidatesTags: ['Orders'],
         }),
     }),
 });

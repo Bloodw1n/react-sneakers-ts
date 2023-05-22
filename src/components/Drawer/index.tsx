@@ -30,7 +30,7 @@ const Drawer: FC<PropsType> = ({ onClose, isOpen }) => {
         if (!cartItems) return;
 
         try {
-            const { id } = await createOrder({ items: cartItems }).unwrap();
+            const { id } = await createOrder({ items: cartItems, orderPrice: totalPrice }).unwrap();
             setOrderId(id);
             setIsOrderCompleted(true);
 
@@ -56,10 +56,10 @@ const Drawer: FC<PropsType> = ({ onClose, isOpen }) => {
                     />
                 </h2>
 
-                {cartItems && cartItems.length > 0 ? (
+                {cartItems?.length ? (
                     <div className="flex flex-col mb-[40px] overflow-hidden">
                         <div className="flex mb-[40px] overflow-auto flex-col pr-[15px]">
-                            {cartItems.map((item: ICardItem, index: number) => (
+                            {cartItems?.map((item: ICardItem, index: number) => (
                                 <DrawerViewCard key={index} item={item} onRemove={removeHandler} />
                             ))}
                         </div>
