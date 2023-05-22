@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import './scss/index.scss';
+import { Route, Routes } from 'react-router-dom';
+import { sneakersAPI } from './services';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
-import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import { cardItemsAPI } from './services/CardItems';
+import Favorites from './pages/Favorite';
+import './scss/index.scss';
 
 function App() {
-    const { data: items, isLoading } = cardItemsAPI.useFetchAllCardItemsQuery(7);
+    const { data: items, isLoading } = sneakersAPI.useFetchAllCardItemsQuery(7);
+    const { data: favorites, isLoading: isFavoritesLoading } = sneakersAPI.useFetchFavoriteItemsQuery(7);
+    const { data: cartItems } = sneakersAPI.useFetchCartItemsQuery(7);
     const [cartOpened, setCartOpened] = useState<boolean>(false);
 
     return (
@@ -17,7 +20,25 @@ function App() {
         >
             <Drawer onClose={() => setCartOpened(false)} isOpen={cartOpened} />
             <Header onClickCart={() => setCartOpened(true)} />
-            <Routes>{items && <Route path="/" element={<Home items={items} isLoading={isLoading} />} />}</Routes>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <Home
+                            items={items || []}
+                            cartItems={cartItems || []}
+                            favorites={favorites || []}
+                            isLoading={isLoading}
+                        />
+                    }
+                />
+                <Route
+                    path="/favorites"
+                    element={
+                        <Favorites favorites={favorites} cartItems={cartItems || []} isLoading={isFavoritesLoading} />
+                    }
+                />
+            </Routes>
         </div>
     );
 }

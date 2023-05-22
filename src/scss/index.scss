@@ -116,36 +116,43 @@ code {
     margin-bottom: 40px;
   }
 
-  .greenBtn {
-    width: 100%;
-    height: 55px;
 
-    background: #9dd558;
-    border-radius: 18px;
-    border: 0;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
+}
 
-    transition: background 0.1s ease-in-out;
-    cursor: pointer;
+.greenBtn {
+  width: 100%;
+  height: 55px;
 
-    &:disabled {
-      background-color: #bebebe !important;
-      cursor: default;
-    }
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
 
-    &:hover {
-      background: lighten(#9dd558, 5%);
-    }
-    &:active {
-      background: darken(#9dd558, 5%);
-    }
+  transition: background 0.1s ease-in-out;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: #bebebe !important;
+    cursor: default;
+  }
+
+  &:hover {
+    background: lighten(#9dd558, 5%);
+  }
+  &:active {
+    background: darken(#9dd558, 5%);
   }
 }
 
 .cartEmpty {
   text-align: center;
+
+  h1,h2,h3 {
+    font-weight: bold;
+    font-size: large;
+  }
 
   p {
     width: 280px;

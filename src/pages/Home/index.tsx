@@ -6,9 +6,11 @@ import HomeViewCard from '../../components/Card/homeViewCard';
 type PropsType = {
     items: ICardItem[];
     isLoading: boolean;
+    cartItems: ICardItem[];
+    favorites: ICardItem[];
 };
 
-const Home: FC<PropsType> = ({ items, isLoading = false }) => {
+const Home: FC<PropsType> = ({ items, cartItems, favorites, isLoading = false }) => {
     const [searchValue, setSearchValue] = useState<string>('');
     const filteredItems = items?.filter((item) => item.title.toLowerCase().includes(searchValue));
     const onChangeSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +34,13 @@ const Home: FC<PropsType> = ({ items, isLoading = false }) => {
             </div>
             <div className="flex flex-wrap">
                 {(isLoading ? [...Array(8)] : filteredItems)?.map((item, index) => (
-                    <HomeViewCard key={index} item={item} isLoading={isLoading} />
+                    <HomeViewCard
+                        key={index}
+                        item={item}
+                        cartItems={cartItems || []}
+                        favorites={favorites || []}
+                        isLoading={isLoading}
+                    />
                 ))}
             </div>
         </div>
