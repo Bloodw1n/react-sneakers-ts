@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { sneakersAPI } from '../services';
+import { sneakersAPI } from '@/services';
 
 const rootReducer = combineReducers({
     [sneakersAPI.reducerPath]: sneakersAPI.reducer,
