@@ -14,13 +14,24 @@ module.exports = (env, argv) => {
     const filename = (ext) => (isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`);
 
     return {
-        entry: './src/index.tsx',
+        target: 'web',
+        context: path.resolve(__dirname, 'src'),
+        entry: './index.tsx',
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'bundle-[hash].js',
+            clean: true,
         },
         resolve: {
             extensions: ['.ts', '.tsx', '.js'],
+            alias: {
+                '@': path.resolve(__dirname, 'src'),
+                '@components': path.resolve(__dirname, 'src/components'),
+            },
+            modules: [path.join(__dirname, 'node_modules')],
+        },
+        resolveLoader: {
+            modules: [path.join(__dirname, 'node_modules')],
         },
         devServer: {
             port: 3000,
@@ -51,7 +62,7 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: 'src/assets/index.html',
+                template: './assets/index.html',
                 filename: 'index.html',
                 minify: {
                     collapseWhitespace: true,
@@ -59,7 +70,7 @@ module.exports = (env, argv) => {
                     removeRedundantAttributes: true,
                     useShortDoctype: true,
                 },
-                favicon: 'src/assets/favicon.ico',
+                favicon: './assets/favicon.ico',
             }),
             new MiniCssExtractPlugin({
                 filename: filename('css'),

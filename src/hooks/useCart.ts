@@ -1,4 +1,4 @@
-import { sneakersAPI } from '../services';
+import { sneakersAPI } from '@/services';
 
 export const useCart = () => {
     const { data: cartItems } = sneakersAPI.useFetchCartItemsQuery(7);

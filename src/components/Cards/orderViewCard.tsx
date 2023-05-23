@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { IOrderItem } from '../../models/ICardItem';
-import { CardWrapper, CustomContentLoader } from '../../ui';
+import { IOrderItem } from '@/models/ICardItem';
+import { CardWrapper, CustomContentLoader } from '@/ui';
 
 type PropsType = {
     item: IOrderItem;

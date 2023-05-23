@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import OrderViewCard from '../../components/Cards/orderViewCard';
-import { IOrderItem } from '../../models/ICardItem';
-import { PageTitle, PageWrapper } from '../../ui';
+import OrderViewCard from '@components/Cards/orderViewCard';
+import { IOrderItem } from '@/models/ICardItem';
+import { PageTitle, PageWrapper } from '@/ui';
 
 type PropsType = {
     orders?: IOrderItem[];

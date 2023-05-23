@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { sneakersAPI } from './services';
-import Drawer from './components/Drawer';
-import Header from './components/Header';
-import Home from './pages/Home';
-import Favorites from './pages/Favorite';
-import './scss/index.scss';
-import Orders from './pages/Orders';
+import { sneakersAPI } from '@/services';
+import Drawer from '@components/Drawer';
+import Header from '@components/Header';
+import Home from '@/pages/Home';
+import Favorites from '@/pages/Favorite';
+import '@/scss/index.scss';
+import Orders from '@/pages/Orders';
 
 function App() {
     const { data: items, isLoading } = sneakersAPI.useFetchAllCardItemsQuery(7);

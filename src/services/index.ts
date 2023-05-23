@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { ICardItem, IOrderItem } from '../models/ICardItem';
+import { ICardItem, IOrderItem } from '@/models/ICardItem';
 
 export const sneakersAPI = createApi({
     reducerPath: 'cardItemsAPI',

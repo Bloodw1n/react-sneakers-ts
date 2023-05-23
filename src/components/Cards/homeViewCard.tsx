@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { ICardItem } from '../../models/ICardItem';
-import { sneakersAPI } from '../../services';
-import { useCart } from '../../hooks/useCart';
-import { CardWrapper, CustomContentLoader } from '../../ui';
+import { ICardItem } from '@/models/ICardItem';
+import { sneakersAPI } from '@/services';
+import { useCart } from '@/hooks/useCart';
+import { CardWrapper, CustomContentLoader } from '@/ui';
 
 type PropsType = {
     item: ICardItem;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { ICardItem } from '../../models/ICardItem';
-import HomeViewCard from '../../components/Cards/homeViewCard';
-import { EmptyPage, PageTitle, PageWrapper } from '../../ui';
+import { ICardItem } from '@/models/ICardItem';
+import HomeViewCard from '@components/Cards/homeViewCard';
+import { EmptyPage, PageTitle, PageWrapper } from '@/ui';
 
 type PropsType = {
     isLoading: boolean;

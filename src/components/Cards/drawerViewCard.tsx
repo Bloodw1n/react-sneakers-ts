@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ICardItem } from '../../models/ICardItem';
+import { ICardItem } from '@/models/ICardItem';
 
 type PropsType = {
     item: ICardItem;

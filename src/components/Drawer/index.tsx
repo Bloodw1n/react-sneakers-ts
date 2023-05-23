@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
-import DrawerViewCard from '../Cards/drawerViewCard';
-import Info from '../Info';
-import { DrawerFooter } from '../../ui';
-import { ICardItem } from '../../models/ICardItem';
-import { sneakersAPI } from '../../services';
-import { useCart } from '../../hooks/useCart';
+import DrawerViewCard from '@components/Cards/drawerViewCard';
+import Info from '@components/Info';
+import { DrawerFooter } from '@/ui';
+import { ICardItem } from '@/models/ICardItem';
+import { sneakersAPI } from '@/services';
+import { useCart } from '@/hooks/useCart';
 
 type PropsType = {
     onClose: () => void;
