@@ -3,6 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "author": "Arseniy (Bloodw1n)",
+  "homepage": "http://Bloodw1n.github.io/top-sneakers",
+  "scripts": {
+    "start": "webpack serve --mode=development --progress",
+    "build": "webpack --mode=production",
+    "build:prod": "webpack --config webpack.config.prod.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/react": "^13.4.0",
@@ -16,6 +26,7 @@
     "cssnano": "^6.0.0",
     "eslint-webpack-plugin": "^4.0.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^5.0.0",
     "msw": "^1.2.1",
     "node-sass": "^7.0.3",
     "postcss": "^8.4.21",
@@ -38,13 +49,6 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "webpack-merge": "^5.8.0"
-  },
-  "scripts": {
-    "start": "webpack serve --mode=development --progress",
-    "build": "webpack --mode=production",
-    "build:prod": "webpack --config webpack.config.prod.js",
-    "test": "jest",
-    "test:watch": "jest --watch"
   },
   "eslintConfig": {
     "extends": [
