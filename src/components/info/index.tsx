@@ -6,7 +6,7 @@ type PropsType = {
     description: string;
     onClose: () => void;
 };
-const Info: FC<PropsType> = ({ title, image, description, onClose }) => {
+const Info: FC<PropsType> = ({ title, image, description, onClose }): JSX.Element => {
     return (
         <div className="cartEmpty flex items-center justify-center flex-col mt-[50%]">
             <img className="mb-[20px]" width={120} src={image} alt="empty-cart" />

@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { ICardItem } from '@/models/ICardItem';
-import HomeViewCard from '@components/Cards/homeViewCard';
 import { EmptyPage, PageTitle, PageWrapper } from '@/ui';
+import HomeViewCard from '@cards/home-view';
 
 type PropsType = {
     isLoading: boolean;
-    cartItems: ICardItem[];
+    cartItems?: ICardItem[];
     favorites?: ICardItem[];
 };
-const Favorites: FC<PropsType> = ({ favorites, cartItems, isLoading }) => {
+const Favorites: FC<PropsType> = ({ favorites, cartItems, isLoading }): JSX.Element => {
     return (
         <PageWrapper>
             {favorites?.length ? (

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { sneakersAPI } from '@/services';
-import Drawer from '@components/Drawer';
-import Header from '@components/Header';
-import Home from '@/pages/Home';
-import Favorites from '@/pages/Favorite';
-import '@/scss/index.scss';
-import Orders from '@/pages/Orders';
+import Home from '@/pages/home';
+import Header from '@components/header';
+import Favorites from '@/pages/favorite';
+import Orders from '@/pages/orders';
+import Drawer from '@components/drawer';
+import { api } from '@/api';
+import './scss/index.scss';
 
-function App() {
-    const { data: items, isLoading } = sneakersAPI.useFetchAllCardItemsQuery(7);
-    const { data: favorites, isLoading: isFavoritesLoading } = sneakersAPI.useFetchFavoriteItemsQuery(7);
-    const { data: cartItems } = sneakersAPI.useFetchCartItemsQuery(7);
-    const { data: orders, isLoading: isOrdersLoading } = sneakersAPI.useFetchOrdersQuery(14);
+const TopSneakers: FC = (): JSX.Element => {
+    const { data: items, isLoading } = api.useFetchAllCardItemsQuery(7);
+    const { data: favorites, isLoading: isFavoritesLoading } = api.useFetchFavoriteItemsQuery(7);
+    const { data: cartItems } = api.useFetchCartItemsQuery(7);
+    const { data: orders, isLoading: isOrdersLoading } = api.useFetchOrdersQuery(14);
     const [cartOpened, setCartOpened] = useState<boolean>(false);
 
     return (
@@ -37,6 +37,6 @@ function App() {
             </Routes>
         </div>
     );
-}
+};
 
-export default App;
+export default TopSneakers;

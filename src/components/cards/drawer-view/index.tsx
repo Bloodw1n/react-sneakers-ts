@@ -6,7 +6,7 @@ type PropsType = {
     onRemove: (item: ICardItem) => void;
 };
 
-const DrawerViewCard: FC<PropsType> = ({ item, onRemove }) => {
+const DrawerViewCard: FC<PropsType> = ({ item, onRemove }): JSX.Element => {
     const removeHandler = (e: React.MouseEvent<HTMLImageElement>) => {
         e.stopPropagation();
         onRemove(item);
@@ -26,7 +26,7 @@ const DrawerViewCard: FC<PropsType> = ({ item, onRemove }) => {
             <img
                 onClick={removeHandler}
                 className="removeBtn cursor-pointer"
-                src="../../assets/images/cross.svg"
+                src="../../../assets/images/cross.svg"
                 alt="remove"
             />
         </div>

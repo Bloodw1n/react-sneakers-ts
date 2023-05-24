@@ -68,8 +68,8 @@ export const CustomContentLoader = () => {
 type DrawerFooterProps = {
     createOrder: () => void;
     isLoading: boolean;
-    totalPrice?: number;
-    tax?: string | number;
+    totalPrice?: number | null;
+    tax?: string | null;
 };
 
 export const DrawerFooter: FC<DrawerFooterProps> = ({ createOrder, totalPrice, tax, isLoading }) => {

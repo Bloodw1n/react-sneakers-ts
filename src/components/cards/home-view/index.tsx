@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { ICardItem } from '@/models/ICardItem';
-import { sneakersAPI } from '@/services';
+import { api } from '@/api';
 import { useCart } from '@/hooks/useCart';
 import { CardWrapper, CustomContentLoader } from '@/ui';
 
@@ -12,13 +12,13 @@ type PropsType = {
     isOrdersView?: boolean;
 };
 
-const HomeViewCard: FC<PropsType> = ({ item, cartItems, favorites, isLoading }) => {
+const HomeViewCard: FC<PropsType> = ({ item, cartItems, favorites, isLoading }): JSX.Element => {
     const { isItemAdded, isItemFavorite } = useCart();
     const selectedItem: ICardItem = { parentId: item?.id, ...item };
-    const [addToCartItem, {}] = sneakersAPI.useAddToCartItemMutation();
-    const [deleteCartItem, {}] = sneakersAPI.useDeleteCartItemMutation();
-    const [deleteFromFavorites, {}] = sneakersAPI.useDeleteFromFavoritesMutation();
-    const [addToFavoriteItem, {}] = sneakersAPI.useAddToFavoriteItemMutation();
+    const [addToCartItem, {}] = api.useAddToCartItemMutation();
+    const [deleteCartItem, {}] = api.useDeleteCartItemMutation();
+    const [deleteFromFavorites, {}] = api.useDeleteFromFavoritesMutation();
+    const [addToFavoriteItem, {}] = api.useAddToFavoriteItemMutation();
 
     const plusHandler = () => {
         const findItem = cartItems?.find((item) => item.parentId === selectedItem.id) || null;

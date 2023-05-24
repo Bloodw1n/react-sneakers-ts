@@ -1,13 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { sneakersAPI } from '@/services';
+import { api } from '@/api';
 
 const rootReducer = combineReducers({
-    [sneakersAPI.reducerPath]: sneakersAPI.reducer,
+    [api.reducerPath]: api.reducer,
 });
 
 export const setupStore = () => {
     return configureStore({
         reducer: rootReducer,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sneakersAPI.middleware),
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
     });
 };
