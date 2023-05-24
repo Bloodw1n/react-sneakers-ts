@@ -82,7 +82,7 @@ const Drawer: FC<PropsType> = ({ onClose, isOpen }): JSX.Element => {
                         }
                         image={
                             isOrderCompleted
-                                ? '../../assets/images/order_is_processed.jpg'
+                                ? '../../assets/images/order-is-processed.jpg'
                                 : '../../assets/images/empty-cart.jpg'
                         }
                     />
