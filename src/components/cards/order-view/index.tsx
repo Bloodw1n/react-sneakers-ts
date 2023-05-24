@@ -7,7 +7,7 @@ type PropsType = {
     isLoading: boolean;
 };
 
-const OrderViewCard: FC<PropsType> = ({ item, isLoading }) => {
+const OrderViewCard: FC<PropsType> = ({ item, isLoading }): JSX.Element => {
     return (
         <CardWrapper width={'300px'} className={'flex w-[270px] items-center gap-[10px]'}>
             {isLoading ? (

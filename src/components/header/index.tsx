@@ -5,7 +5,7 @@ import { useCart } from '@/hooks/useCart';
 type PropsType = {
     onClickCart: () => void;
 };
-const Header: FC<PropsType> = ({ onClickCart }) => {
+const Header: FC<PropsType> = ({ onClickCart }): JSX.Element => {
     const { totalPrice } = useCart();
     return (
         <header className="flex justify-between items-center p-[40px]">

@@ -22,7 +22,8 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["./src/*"],
-      "@components/*":["./src/components/*"]
+      "@components/*":["./src/components/*"],
+      "@cards/*": ["./src/components/cards/*"]
     }
   },
   "include": [

@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { ICardItem } from '@/models/ICardItem';
-import HomeViewCard from '@components/Cards/homeViewCard';
+import HomeViewCard from '@cards/home-view';
 import { PageWrapper } from '@/ui';
 
 type PropsType = {
@@ -10,7 +10,7 @@ type PropsType = {
     favorites?: ICardItem[];
 };
 
-const Home: FC<PropsType> = ({ items, cartItems, favorites, isLoading = false }) => {
+const Home: FC<PropsType> = ({ items, cartItems, favorites, isLoading = false }): JSX.Element => {
     const [searchValue, setSearchValue] = useState<string>('');
     const filteredItems = items?.filter((item) => item.title.toLowerCase().includes(searchValue));
     const searchInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {

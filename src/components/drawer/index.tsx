@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
-import DrawerViewCard from '@components/Cards/drawerViewCard';
-import Info from '@components/Info';
+import Info from '@components/info';
 import { DrawerFooter } from '@/ui';
 import { ICardItem } from '@/models/ICardItem';
-import { sneakersAPI } from '@/services';
+import { api } from '@/api';
 import { useCart } from '@/hooks/useCart';
+import DrawerViewCard from '@cards/drawer-view';
 
 type PropsType = {
     onClose: () => void;
@@ -12,11 +12,11 @@ type PropsType = {
 };
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const Drawer: FC<PropsType> = ({ onClose, isOpen }) => {
-    const { data: cartItems } = sneakersAPI.useFetchCartItemsQuery(7);
+const Drawer: FC<PropsType> = ({ onClose, isOpen }): JSX.Element => {
+    const { data: cartItems } = api.useFetchCartItemsQuery(7);
 
-    const [deleteCartItem, {}] = sneakersAPI.useDeleteCartItemMutation();
-    const [createOrder, { isLoading }] = sneakersAPI.useCreateOrderMutation();
+    const [deleteCartItem, {}] = api.useDeleteCartItemMutation();
+    const [createOrder, { isLoading }] = api.useCreateOrderMutation();
 
     const [orderId, setOrderId] = useState(null);
     const [isOrderCompleted, setIsOrderCompleted] = useState<boolean>(false);

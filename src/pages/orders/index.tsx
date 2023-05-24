@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import OrderViewCard from '@components/Cards/orderViewCard';
 import { IOrderItem } from '@/models/ICardItem';
 import { PageTitle, PageWrapper } from '@/ui';
+import OrderViewCard from '@cards/order-view';
 
 type PropsType = {
     orders?: IOrderItem[];
     isLoading: boolean;
 };
-const Orders: FC<PropsType> = ({ orders, isLoading }) => {
+const Orders: FC<PropsType> = ({ orders, isLoading }): JSX.Element => {
     return (
         <PageWrapper>
             <PageTitle>Мои заказы</PageTitle>

@@ -26,7 +26,8 @@ module.exports = (env, argv) => {
             extensions: ['.ts', '.tsx', '.js'],
             alias: {
                 '@': path.resolve(__dirname, 'src'),
-                '@components': path.resolve(__dirname, 'src/components'),
+                '@components': path.resolve(__dirname, 'src/components/'),
+                '@cards': path.resolve(__dirname, 'src/components/cards/'),
             },
             modules: [path.join(__dirname, 'node_modules')],
         },

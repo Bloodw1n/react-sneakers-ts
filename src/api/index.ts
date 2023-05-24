@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { ICardItem, IOrderItem } from '@/models/ICardItem';
 
-export const sneakersAPI = createApi({
-    reducerPath: 'cardItemsAPI',
+export const api = createApi({
+    reducerPath: 'sneakersAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://623ca3ca7efb5abea684d5d3.mockapi.io' }),
     tagTypes: ['CardItems', 'CartItems', 'Favorites', 'Orders'],
     endpoints: (build) => ({
