@@ -11,9 +11,9 @@ const Header: FC<PropsType> = ({ onClickCart }): JSX.Element => {
         <header className="flex justify-between items-center p-[40px]">
             <Link to="/">
                 <div className="flex items-center">
-                    <img src="../../assets/images/header.png" width="80" alt="logo" className="mr-[16px]" />
+                    <img src="../../assets/images/logo.png" width="80" alt="logo" className="mr-[16px]" />
                     <div>
-                        <h3 className="font-bold text-xl uppercase">React Sneakers</h3>
+                        <h3 className="font-bold text-xl uppercase">Best Sneakers</h3>
                         <p>Магазин лучших кроссовок</p>
                     </div>
                 </div>

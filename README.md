@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<br  />
+<div  style="text-align: center;">
+<a  href="https://github.com/othneildrew/Best-README-Template">
+<img  src="./src/assets/images/logo.png"  alt="Logo"  width="80"  height="80">
+</a>
+<h3  style="text-align: center;">Best Sneakers</h3>
+<p  style="text-align: center;">
+Online store of the best sneakers
+<br  />
+<a  href="#">View Demo</a>
+</p>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Built With
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![RTK Query](https://img.shields.io/badge/RTK%20Query-%23593D88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+<br/>
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 
-## Available Scripts
+<!-- GETTING STARTED -->
+## Getting Started
+### Installation
+1. Get a free [githubtoken](https://docs.github.com/ru/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#personal-access-tokens-classic)
+2. Clone the repo (or clone the repo in some other way)
+```sh
+git clone https://<username>:<githubtoken>@github.com/<username>/top-sneakers.git
+```
+3. Install NPM packages
+```sh
+npm install
+```
+4. Run tests
+```sh
+npm run test
+```
+5. Build the project
+```sh
+npm run build
+```
+6. Run the project
+```sh
+npm run start
+```
 
-In the project directory, you can run:
+<!-- CONTRIBUTING -->
 
-### `npm start`
+## Contributing
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Don't forget to give the project a star! Thanks again!
+1. Fork the Project
 
-### `npm test`
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 
-### `npm run build`
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Open a Pull Request
