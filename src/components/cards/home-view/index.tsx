@@ -46,8 +46,8 @@ const HomeViewCard: FC<PropsType> = ({ item, cartItems, favorites, isLoading }):
                         <img
                             src={
                                 isItemFavorite(item.parentId ? item.parentId : item.id)
-                                    ? '../../assets/images/Add_to_favorites_active.svg'
-                                    : '../../assets/images/Add_to_favorites.svg'
+                                    ? '../../assets/images/add-to-favorites-active.svg'
+                                    : '../../assets/images/add-to-favorites.svg'
                             }
                             alt="Add_to_favourites"
                         />

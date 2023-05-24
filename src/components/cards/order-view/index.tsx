@@ -14,7 +14,7 @@ const OrderViewCard: FC<PropsType> = ({ item, isLoading }): JSX.Element => {
                 <CustomContentLoader />
             ) : (
                 <>
-                    <img src={'../../assets/images/order_is_processed.jpg'} alt="sneakers" className={'h-[135px]'} />
+                    <img src={'../../assets/images/order-is-processed.jpg'} alt="sneakers" className={'h-[135px]'} />
                     <div className="flex flex-col">
                         <h5 className="font-bold">Заказ №{item.id}</h5>
                         <div className="flex flex-col mt-[14px]">
