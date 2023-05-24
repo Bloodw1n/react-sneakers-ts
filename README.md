@@ -1,14 +1,14 @@
 <!-- PROJECT LOGO -->
 <br  />
 <div align="center">
-<a href="#">
+<a href="https://bloodw1n.github.io/top-sneakers/">
 <img  src="./src/assets/images/logo.png"  alt="Logo"  width="80"  height="80">
 </a>
 <h3  align="center">Best Sneakers</h3>
 <p  align="center">
 Online store of the best sneakers
 <br  />
-<a href="#">View Demo</a>
+<a href="https://bloodw1n.github.io/top-sneakers/">View Demo</a>
 </p>
 </div>
 
