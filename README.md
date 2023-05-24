@@ -1,14 +1,14 @@
 <!-- PROJECT LOGO -->
 <br  />
-<div  style="text-align: center;">
-<a  href="https://github.com/othneildrew/Best-README-Template">
+<div align="center">
+<a href="#">
 <img  src="./src/assets/images/logo.png"  alt="Logo"  width="80"  height="80">
 </a>
-<h3  style="text-align: center;">Best Sneakers</h3>
-<p  style="text-align: center;">
+<h3  align="center">Best Sneakers</h3>
+<p  align="center">
 Online store of the best sneakers
 <br  />
-<a  href="#">View Demo</a>
+<a href="#">View Demo</a>
 </p>
 </div>
 
