@@ -53,7 +53,7 @@ const HomeViewCard: FC<PropsType> = ({ item, cartItems, favorites, isLoading }):
                         />
                     </div>
 
-                    <img src={item.imgUrl} alt="sneakers" width="100%" height={135} />
+                    <img src={`../../${item.imgUrl}`} alt="sneakers" width="100%" height={135} />
 
                     <h5 className="min-h-[50px]">{item.title}</h5>
                     <div className="flex justify-between items-center">

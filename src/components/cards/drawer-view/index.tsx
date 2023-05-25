@@ -15,7 +15,7 @@ const DrawerViewCard: FC<PropsType> = ({ item, onRemove }): JSX.Element => {
         <div key={item.id} className="cartItem min-h-[120px] flex items-center mb-[20px]">
             <div
                 style={{
-                    backgroundImage: `url(${item.imgUrl})`,
+                    backgroundImage: `url(../../${item.imgUrl})`,
                 }}
                 className="cartItemImg"
             ></div>
